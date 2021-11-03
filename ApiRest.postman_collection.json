@@ -1,0 +1,1211 @@
+{
+	"info": {
+		"_postman_id": "fe69fc22-fce8-423a-818c-7b3d8fce559f",
+		"name": "ApiRest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Crear Pregunta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Descripcion\":\"¿Como esta el día?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Pregunta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Pregunta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener preguntas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:36335/api/Pregunta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Pregunta"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Preguntas asociadas a una auditoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAuditoria\":3\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/VerAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"VerAuditoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Contestar preguntas",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"idPreguntaRespuesta\":8,\r\n        \"respuestaEscogida\":2\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":9,\r\n        \"respuestaEscogida\":5\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/AplicarAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"AplicarAuditoria"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUsuario\":4,\r\n    \"NombreUsuario\":\"Oracio4\",\r\n    \"Password\":\"123Hola\",\r\n    \"Rol\":\"Rh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obtener usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Borrar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUsuario\":4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pregutnas asociadas a un auditoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAuditoria\":3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/VerAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"VerAuditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pregutnas asociadas a un auditoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAuditoria\":3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/VerAuditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"VerAuditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 02 Nov 2021 20:25:37 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "355"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idPreguntaRespuesta\": 8,\n        \"idPregunta_PreguntaRespuesta\": 4,\n        \"pregunta\": null,\n        \"idRespuesta_PreguntaRespuesta\": 2,\n        \"respuesta\": null,\n        \"idAuditoria_PreguntaRespuesta\": 3,\n        \"auditoria\": null\n    },\n    {\n        \"idPreguntaRespuesta\": 9,\n        \"idPregunta_PreguntaRespuesta\": 5,\n        \"pregunta\": null,\n        \"idRespuesta_PreguntaRespuesta\": 5,\n        \"respuesta\": null,\n        \"idAuditoria_PreguntaRespuesta\": 3,\n        \"auditoria\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener auditorias",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener auditorias",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 02 Nov 2021 20:23:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idAuditoria\": 2,\n        \"descripcion\": \"Calidad\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 2,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    },\n    {\n        \"idAuditoria\": 3,\n        \"descripcion\": \"Seguridad\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 1,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    },\n    {\n        \"idAuditoria\": 4,\n        \"descripcion\": \"Auditoría de preguntas\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 2,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Crear Auditoria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Descripcion\":\"Auditoría de preguntas\",\r\n    \"Estado\":\"Pendiente\",\r\n    \"IdDepartamento_Auditoria\":2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear Auditoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Descripcion\":\"Auditoría de preguntas\",\r\n    \"Estado\":\"Pendiente\",\r\n    \"IdDepartamento_Auditoria\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 02 Nov 2021 20:23:08 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mesage\": \"Auditoría registrada con éxito!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Contestar preguntas de auditoria",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"idPreguntaRespuesta\":8,\r\n        \"respuestaEscogida\":3\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":9,\r\n        \"respuestaEscogida\":2\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/AplicarAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"AplicarAuditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Contestar preguntas de auditoria",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"idPreguntaRespuesta\":8,\r\n        \"respuestaEscogida\":3\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":9,\r\n        \"respuestaEscogida\":2\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/AplicarAuditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"AplicarAuditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 02 Nov 2021 20:27:19 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La auditoría ha sido aplicada con éxito!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Asignar preguntas a  una auditoria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":4,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":1,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":7,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":13,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/CrearAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"CrearAuditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":4,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":1,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":7,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":13,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":4\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/CrearAuditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"CrearAuditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 02 Nov 2021 20:38:58 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Preguntas asignadas a la auditoría con éxito\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Agregar departamento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"NombreDepartamento\":\"Belleza\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Departamento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Departamento"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar departamento",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreDepartamento\":\"Belleza\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Departamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Departamento"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 00:41:13 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El departamento ha sido agregado con éxito!!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener departamentos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:36335/api/Departamento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Departamento"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener departamentos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:36335/api/Departamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Departamento"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 00:41:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idDepartamento\": 1,\n        \"nombreDepartamento\": \"Cocina\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 2,\n        \"nombreDepartamento\": \"Automotriz\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 3,\n        \"nombreDepartamento\": \"RH\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 4,\n        \"nombreDepartamento\": \"Dulcería\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 5,\n        \"nombreDepartamento\": \"Joyas\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 6,\n        \"nombreDepartamento\": \"Juguetes\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 7,\n        \"nombreDepartamento\": \"Electronica\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 8,\n        \"nombreDepartamento\": \"Hagalo usted mismo\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 9,\n        \"nombreDepartamento\": \"Limpieza\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 10,\n        \"nombreDepartamento\": \"Mercancía general\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 11,\n        \"nombreDepartamento\": \"Armas\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 12,\n        \"nombreDepartamento\": \"Temporada\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 13,\n        \"nombreDepartamento\": \"Recepción\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 14,\n        \"nombreDepartamento\": \"Herramientas\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 15,\n        \"nombreDepartamento\": \"Perfumeria\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 16,\n        \"nombreDepartamento\": \"Belleza\",\n        \"auditorias\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Agregar pregunta",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Descripcion\":\"¿Los utensilios peligrosos están bien resguardados?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Pregunta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Pregunta"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar pregunta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Descripcion\":\"¿Los utensilios peligrosos están bien resguardados?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Pregunta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Pregunta"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 00:43:29 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"mesage\": \"Pregunta registrada con éxito!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener preguntas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:36335/api/Pregunta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Pregunta"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener preguntas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:36335/api/Pregunta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Pregunta"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 00:45:15 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idPregunta\": 1,\n        \"descripcion\": \"¿Cuantos años tiene?\"\n    },\n    {\n        \"idPregunta\": 2,\n        \"descripcion\": \"¿Como esta?\"\n    },\n    {\n        \"idPregunta\": 3,\n        \"descripcion\": \"¿Como va?\"\n    },\n    {\n        \"idPregunta\": 4,\n        \"descripcion\": \"¿Que tan limpio esta?\"\n    },\n    {\n        \"idPregunta\": 5,\n        \"descripcion\": \"¿Se hace con frecuencia?\"\n    },\n    {\n        \"idPregunta\": 6,\n        \"descripcion\": \"¿Cuantos años tiene?.\"\n    },\n    {\n        \"idPregunta\": 7,\n        \"descripcion\": \"¿Como esta el día?\"\n    },\n    {\n        \"idPregunta\": 8,\n        \"descripcion\": \"¿Está bien aseada esta el área?\"\n    },\n    {\n        \"idPregunta\": 9,\n        \"descripcion\": \"¿Se cumplen los protocolos de sanidad?\"\n    },\n    {\n        \"idPregunta\": 10,\n        \"descripcion\": \"¿Se realiza la limpieza con frecuencia?\"\n    },\n    {\n        \"idPregunta\": 11,\n        \"descripcion\": \"¿Las plagas estan bien controladas?\"\n    },\n    {\n        \"idPregunta\": 12,\n        \"descripcion\": \"¿Los estantes/mostradores/muebles lucen bien?\"\n    },\n    {\n        \"idPregunta\": 13,\n        \"descripcion\": \"¿Los empleados se lavan las manos frecuentemente?\"\n    },\n    {\n        \"idPregunta\": 14,\n        \"descripcion\": \"¿Las herramientas de limpieza estan en buen estado?\"\n    },\n    {\n        \"idPregunta\": 15,\n        \"descripcion\": \"¿Los utensilios peligrosos están bien resguardados?\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Añadir usuario",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"NombreUsuario\":\"Migelo\",\r\n    \"Password\":\"456jijiji\",\r\n    \"Rol\":\"Auditor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Añadir usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreUsuario\":\"Eduardo\",\r\n    \"Password\":\"123Hola\",\r\n    \"Rol\":\"RH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 00:47:56 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario Eduardo ya existe!\"\n}"
+				},
+				{
+					"name": "Añadir usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreUsuario\":\"Migelo\",\r\n    \"Password\":\"456jijiji\",\r\n    \"Rol\":\"Auditor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 03:34:33 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuario registrado con exito!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener usuarios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 00:52:00 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idUsuario\": 1,\n        \"nombreUsuario\": \"Eduardo\",\n        \"password\": \"123Hola\",\n        \"rol\": \"Rh\"\n    },\n    {\n        \"idUsuario\": 2,\n        \"nombreUsuario\": \"Bryan\",\n        \"password\": \"456Adios\",\n        \"rol\": \"Auditor\"\n    },\n    {\n        \"idUsuario\": 3,\n        \"nombreUsuario\": \"Brandon\",\n        \"password\": \"789Prueba\",\n        \"rol\": \"Auditor\"\n    },\n    {\n        \"idUsuario\": 4,\n        \"nombreUsuario\": \"Oracio\",\n        \"password\": \"123456\",\n        \"rol\": \"Auditor\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Borrar Usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idUsuario\":4\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar Usuario",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUsuario\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 03 Nov 2021 03:34:55 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario se ha borrado con éxito!\"\n}"
+				}
+			]
+		}
+	]
+}
