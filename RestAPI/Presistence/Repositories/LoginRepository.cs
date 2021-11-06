@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RestAPI.Domain.IRepositories;
 using RestAPI.Domain.Models;
+using RestAPI.DTO;
 using RestAPI.Presistence.Context;
 using System;
 using System.Collections.Generic;
@@ -22,7 +23,7 @@ namespace RestAPI.Presistence.Repositories
         /// </summary>
         /// <param name="usuario">Objeto Usuario que queremos validar.</param>
         /// <returns>Un usuario que coincida con el objeto usuario recibido.</returns>
-        public async Task<Usuario> ValidateUser(Usuario usuario)
+        public async Task<Usuario> ValidateUser(LoginDTO usuario)
         {
             //Mediante una consulta LINQ, le decimos que encuentre el primer registro dentro de mi tabla
             //Usuarios que coincida con el nombre de usuario y el password de mi objeto usuario del parámetro.

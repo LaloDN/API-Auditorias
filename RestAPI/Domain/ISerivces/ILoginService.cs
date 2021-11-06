@@ -1,4 +1,5 @@
 ﻿using RestAPI.Domain.Models;
+using RestAPI.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ namespace RestAPI.Domain.ISerivces
 {
     public interface ILoginService
     {
-        Task<Usuario> ValidateUser(Usuario usuario);
+        Task<Usuario> ValidateUser(LoginDTO usuario);
 
     }
 }

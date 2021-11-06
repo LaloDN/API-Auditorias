@@ -1,6 +1,7 @@
 ﻿using RestAPI.Domain.IRepositories;
 using RestAPI.Domain.ISerivces;
 using RestAPI.Domain.Models;
+using RestAPI.DTO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace RestAPI.Services
             _loginRepository = loginRepository;
         }
 
-        public async Task<Usuario> ValidateUser(Usuario usuario)
+        public async Task<Usuario> ValidateUser(LoginDTO usuario)
         {
             return await _loginRepository.ValidateUser(usuario);
         }
