@@ -1,9 +1,3 @@
-**Contenido**
-
-[TOCM]
-
-[TOC]
-
 ### Dependencias
 Esta API Rest esta construida con los siguientes paquetes/herramientas:
 - .Net Core (3.1)
