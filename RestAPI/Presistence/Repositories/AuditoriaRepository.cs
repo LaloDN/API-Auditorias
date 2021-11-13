@@ -24,10 +24,13 @@ namespace RestAPI.Presistence.Repositories
         /// </summary>
         /// <param name="auditoria">Objeto de tipo Auditoria a añadir.</param>
         /// <returns>Una tarea guardando la auditoria en la base.</returns>
-        public async Task CrearAuditoria(Auditoria auditoria)
+        public async Task<int> CrearAuditoria(Auditoria auditoria)
         {
             _context.Add(auditoria);
             await _context.SaveChangesAsync();
+            //Obtenemos el id con el que guardamos la auditoria y lo retornamos
+            int id = _context.Auditorias.Max(a=>a.IdAuditoria);
+            return id;
         }
 
         /// <summary>
@@ -89,7 +92,42 @@ namespace RestAPI.Presistence.Repositories
             }
             _context.UpdateRange(LPreg);          
             await _context.SaveChangesAsync();
-        } 
+        }
 
+        /// <summary>
+        /// Obtiene el estado de una auditoria según su id.
+        /// </summary>
+        /// <param name="idAuditoria">Id de la auditoria con el estado a obtener.</param>
+        /// <returns>Una cadena con el estado de la auditoria,</returns>
+        public async Task<string> ObtenerEstadoAuditoria(int idAuditoria)
+        {
+            //string estado = await _context.Auditorias.Select(a=>a.Estado).FirstOrDefaultAsync();
+            string estado = await _context.Auditorias.Where(a => a.IdAuditoria == idAuditoria).Select(a => a.Estado).FirstOrDefaultAsync();
+            return estado;
+        }
+
+        /// <summary>
+        /// Recibe el estado que le voy a poner a mi auditoria y lo actualiza.
+        /// </summary>
+        /// <param name="estado">Cadena con el estado nuevo de la auditoria.</param>
+        /// <param name="auditoria">Auditoria a la cual le voy a cambiar mi estado.</param>
+        /// <returns>Una tarea guardando el nuevo estado de la auditoria.</returns>
+        public async Task CambiarEstado(string estado,Auditoria auditoria)
+        {
+            auditoria.Estado = estado;
+            await _context.SaveChangesAsync();
+        }
+
+        /// <summary>
+        /// Busca un auditoria a través de su id.
+        /// </summary>
+        /// <param name="idAuditoria">Id de la auditoria a buscar en la base de datos.</param>
+        /// <returns>Un objeto Auditoria con la id que le pasamos.</returns>
+        public async Task<Auditoria> ObtenerAuditoria(int idAuditoria)
+        {
+            //Encuentra el primer resultado que encuentre con el id que le pasamos por parámetro
+            var auditoria = await _context.Auditorias.Where(a => a.IdAuditoria == idAuditoria).FirstOrDefaultAsync();
+            return auditoria;
+        }
     }
 }

@@ -41,10 +41,10 @@ namespace RestAPI.Controllers
                 }
                 //Encriptamos el password del usuario antes de guardarlo en la base.
                 usuario.Password = Encriptar.EncriptarPassword(usuario.Password);
-                //Guardamos el usuario con el método SaveUser
-                await _usuarioService.SaveUser(usuario);
+                //Guardamos el usuario con el método SaveUser y obtenemos el id con el que se guarda.
+                int id = await _usuarioService.SaveUser(usuario);
                 //Le enviamos un mensaje confirmando la operación
-                return Ok(new { message = "Usuario registrado con exito!" });
+                return Ok(new { message = "El usuario " + usuario.NombreUsuario + " se ha registrado con el id " + id });
             }//Enviamos un error por si sale algo mal.
             catch (Exception ex)
             {
@@ -110,16 +110,16 @@ namespace RestAPI.Controllers
             else
             {
                 //Si el usuario no es un RH, le enviamos una lista con único usuario inválido-
-                List<Usuario> Error = new List<Usuario> { new Usuario{IdUsuario = -1, NombreUsuario = "Error", Password = "####", Rol = "Error"}};
+                List<Usuario> Error = new List<Usuario> { new Usuario { IdUsuario = -1, NombreUsuario = "Error", Password = "####", Rol = "Error" } };
                 return Error;
-            }    
+            }
         }
 
         //Endpoint para borrar un usuario en la base, mediante un objeto IdUsuarioDTO
-        [HttpDelete]
+        [HttpDelete("id={id}")]
         //Protección del endpoint
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> Delete(IdUsuarioDTO idUsuarioDTO)
+        public async Task<IActionResult> Delete(int id)
         {
             try
             {
@@ -130,20 +130,28 @@ namespace RestAPI.Controllers
                 //Preguntamos si el usuario es un RH, si lo es, entramos al proceso de borrar un usuario.
                 if (rol == "RH")
                 {
-                    //Extraemos el id del usuario que vamos a borrar del objeto idUsuarioDTO
-                    int idu = idUsuarioDTO.idUsuario;
-                    //Ese id se lo pasamos al método ValidarPorId para ver si existe
-                    var user = await _usuarioService.ValidarPorId(idu);
+                    //El id que tenemos en el url se lo pasamos al método ValidarPorId para ver si existe el usuario a eliminar
+                    var user = await _usuarioService.ValidarPorId(id);
                     //Si user es null, significa que el usuario no existe dentro de la base.
                     if (user == null)
                     {
                         //Le mandamos un mensaje indicandole que no existe el usuario que indicó.
                         return BadRequest(new { message = "El usuario no existe!" });
                     }
-                    //Si el usuario no es null, seguimos con el proceso invocando el método BorrarUsuario.
-                    await _usuarioService.BorrarUsuario(user);
-                    //Enviamos un mensaje confirmando la operación.
-                    return Ok(new { message = "El usuario se ha borrado con éxito!" });
+                    //Obtenemos el id del usuario que esta llamando a este método, el cuál debe ser un RH
+                    int idUsuarioRH = JWTConfigurator.TokenObtenerIdUsuario(identity);
+                    //Necesitamos preguntar si el id del usuario actual es diferente al del que vamos a borrar.
+                    if (idUsuarioRH!=id) {
+                        //Si el usuario no es null, seguimos con el proceso invocando el método BorrarUsuario.
+                        await _usuarioService.BorrarUsuario(user);
+                        //Enviamos un mensaje confirmando la operación.
+                        return Ok(new { message = "El usuario "+ user.NombreUsuario+ " ha sido borrado con éxito!" });
+                    }
+                    else
+                    {
+                        //Si el usuario quiere borrarse a si mismo, le mandamos un error
+                        return BadRequest(new { message = " No puede borrarse a si mismo. " });
+                    }
                 }
                 else
                 {

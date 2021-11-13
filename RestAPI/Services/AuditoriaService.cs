@@ -17,9 +17,9 @@ namespace RestAPI.Services
             _auditoriaRepository = auditoriaRepository;
         }
 
-        public async Task CrearAuditoria(Auditoria auditoria)
+        public async Task<int> CrearAuditoria(Auditoria auditoria)
         {
-            await _auditoriaRepository.CrearAuditoria(auditoria);
+            return await _auditoriaRepository.CrearAuditoria(auditoria);
         }
         public async Task AsignarPreguntas(List<PreguntaRespuesta> preguntaRespuesta)
         {
@@ -28,7 +28,7 @@ namespace RestAPI.Services
 
         public async Task<List<Auditoria>> ObtenerListaAuditorias()
         {
-           return  await _auditoriaRepository.ObtenerListaAuditorias();
+            return await _auditoriaRepository.ObtenerListaAuditorias();
         }
 
         public async Task<List<PreguntaRespuesta>> ObtenerPreguntasAuditoria(int idAuditoria)
@@ -40,5 +40,19 @@ namespace RestAPI.Services
         {
             await _auditoriaRepository.ContestarPreguntas(respPreg);
         }
-     }
+
+        public async Task<string> ObtenerEstadoAuditoria(int idAuditoria)
+        {
+            return await _auditoriaRepository.ObtenerEstadoAuditoria(idAuditoria);
+        }
+       public async Task CambiarEstado(string estado, Auditoria auditoria)
+        {
+            await _auditoriaRepository.CambiarEstado(estado, auditoria);
+        }
+        public async Task<Auditoria> ObtenerAuditoria(int idAuditoria)
+        {
+            return await _auditoriaRepository.ObtenerAuditoria(idAuditoria);
+        }
+
+    }
 }

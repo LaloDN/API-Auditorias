@@ -9,7 +9,7 @@ namespace RestAPI.Domain.ISerivces
 {
     public interface IUsuarioService
     {
-        Task SaveUser(Usuario usuario);
+        Task<int> SaveUser(Usuario usuario);
         Task<bool> ValidateExistence(Usuario usuario);
         Task<Usuario> ValidarPorId(int idu);
 

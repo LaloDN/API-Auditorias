@@ -17,9 +17,9 @@ namespace RestAPI.Services
             _preguntaRepository = preguntaRepository;
         }
 
-        public async Task GuardarPregunta(Pregunta pregunta)
+        public async Task<int> GuardarPregunta(Pregunta pregunta)
         {
-            await _preguntaRepository.GuardarPregunta(pregunta);
+            return await _preguntaRepository.GuardarPregunta(pregunta);
         }
 
         public async Task<bool> RevisarExistencia(Pregunta pregunta)

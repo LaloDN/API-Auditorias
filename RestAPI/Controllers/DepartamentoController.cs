@@ -1,11 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RestAPI.Domain.ISerivces;
 using RestAPI.Domain.Models;
 using RestAPI.Presistence.Context;
+using RestAPI.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace RestAPI.Controllers
@@ -47,14 +51,30 @@ namespace RestAPI.Controllers
             }
         }
 
-        //Endpoint para obtener los departamentos dentro de la base.
+        //Endpoint para obtener los departamentos dentro de la base para definir a cual departamento va la auditoria.
         [HttpGet]
-        public Task<List<Departamento>> Get()
+        //Protección del endpoint
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<List<Departamento>> Get()
         {
-            //Creamos una variable para guardar la lista con los departamentos de la base que 
-            //obtenemos del método ObtenerListaDepartamentos.
-            var departamentos = _departamentoService.ObtenerListaDepartamentos();
-            return departamentos;
+            //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            //Invoco al método que me va a traer exclusivamente el rol del usuario logeado, pasandole el identity.
+            string rol = JWTConfigurator.TokenObtenerRol(identity);
+            //Preguntamos si es un RH para seguir con el proceso
+            if (rol == "RH")
+            {
+                //Creamos una variable para guardar la lista con los departamentos de la base que 
+                //obtenemos del método ObtenerListaDepartamentos.
+                var departamentos = await _departamentoService.ObtenerListaDepartamentos();
+                return departamentos;
+            }
+            else
+            {
+                List<Departamento> Error = new List<Departamento> { new Departamento { IdDepartamento = -1, NombreDepartamento = "Error" } };
+                return Error;
+            }
+
         }
     }
 }

@@ -24,10 +24,13 @@ namespace RestAPI.Presistence.Repositories
         /// </summary>
         /// <param name="pregunta">Objeto pregunta parseado desde un JSON</param>
         /// <returns>Una tarea de guardar la pregunta</returns>
-        public async Task GuardarPregunta(Pregunta pregunta)
+        public async Task<int> GuardarPregunta(Pregunta pregunta)
         {
             _context.Add(pregunta);
             await _context.SaveChangesAsync();
+            //Buscamos el id con el que se guardo la pregunta y lo retornamos.
+            int id = _context.Preguntas.Max(p => p.IdPregunta);
+            return id;
         }
 
         /// <summary>

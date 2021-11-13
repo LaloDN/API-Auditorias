@@ -46,9 +46,9 @@ namespace RestAPI.Controllers
                         return BadRequest(new { message = "La pregunta ya existe dentro de la base" });
                     }
                     //Si no existe aun la pregunta, la guardamos dentro de la base.
-                    await _preguntaService.GuardarPregunta(pregunta);
+                    int id= await _preguntaService.GuardarPregunta(pregunta);
                     //Mandamos un mensaje confirmando la operación.
-                    return Ok(new { message = "Pregunta registrada con éxito!" });
+                    return Ok(new { message = "Pregunta "+ pregunta.Descripcion +" registrada con id "+id });
                 }
                 else
                 {

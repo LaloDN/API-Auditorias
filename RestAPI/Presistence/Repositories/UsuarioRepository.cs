@@ -23,11 +23,16 @@ namespace RestAPI.Presistence.Repositories
         /// </summary>
         /// <param name="usuario">Objeto Usuario a agregar en la tabla.</param>
         /// <returns>Una tarea guardando los cambios.</returns>
-        public async Task SaveUser(Usuario usuario) 
+        public async Task<int> SaveUser(Usuario usuario) 
         {
             _context.Add(usuario);
             await _context.SaveChangesAsync();
+            //Obtenemos el id del último usuario registrado y lo agregamos.
+            // int id = _context.Usuarios.Select(x => x.IdUsuario).Last();
+            int id = _context.Usuarios.Max(u => u.IdUsuario);
+            return id;
         }
+
 
         /// <summary>
         /// Revisa si un usuario existe o no dentro de la base por su nombre de usuario.

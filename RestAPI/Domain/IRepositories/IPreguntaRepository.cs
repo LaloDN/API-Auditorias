@@ -8,7 +8,7 @@ namespace RestAPI.Domain.IRepositories
 {
     public interface IPreguntaRepository
     {
-        Task GuardarPregunta(Pregunta pregunta);
+        Task<int> GuardarPregunta(Pregunta pregunta);
         Task<bool> RevisarExistencia(Pregunta pregunta);
         Task<List<Pregunta>> ObtenerListaPreguntas();
 

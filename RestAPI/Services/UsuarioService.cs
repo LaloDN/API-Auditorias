@@ -17,9 +17,9 @@ namespace RestAPI.Services
             _usuarioRepository = usuarioRepository;
         }
 
-        public async Task SaveUser(Usuario usuario)
+        public async Task<int> SaveUser(Usuario usuario)
         {
-            await _usuarioRepository.SaveUser(usuario);
+            return await _usuarioRepository.SaveUser(usuario);
         }
 
         public async Task<bool> ValidateExistence(Usuario usuario)

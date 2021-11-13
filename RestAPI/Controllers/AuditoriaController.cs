@@ -30,7 +30,7 @@ namespace RestAPI.Controllers
         [HttpPost]
         //Protección del endpoint
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> Post([FromBody] Auditoria auditoria)
+        public async Task<int> Post([FromBody] Auditoria auditoria)
         {
             try
             {
@@ -42,23 +42,60 @@ namespace RestAPI.Controllers
                 if (rol == "RH")
                 {
                     //Mandamos a llamar el método CrearAuditoria y le pasamos el objeto a meter en la base
-                    await _auditoriaService.CrearAuditoria(auditoria);
-                    //Si todo sale bien le mandamos un mensaje confirmando la operación 
-                    return Ok(new { message = "Auditoría registrada con éxito!" });
+                    int id = await _auditoriaService.CrearAuditoria(auditoria);
+                    //Si todo sale bien, retornamos el id con el que se guardo la auditoria en la base
+                    return id;
                 }
                 else
                 {
                     //Le mandamos un mensaje de error si no puede entrar al método.
-                    return BadRequest(new { message = " No tiene permiso de ejecutar esta operación " });
+                    return -1;
+                    // return BadRequest(new { message = " No tiene permiso de ejecutar esta operación " });
                 }
             }
             //Le devolvemos un error si algo sale mal
             catch (Exception ex)
             {
-                return BadRequest(ex.Message);
+                return -1;
+                // return BadRequest(ex.Message);
             }
         }
 
+        //Enpoint para asignarle preguntas a una auditoria
+        [Route("CrearAuditoria")]
+        [HttpPost]
+        //Protección del endpoint
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> Post([FromBody] List<PreguntaRespuesta> preguntaRespuesta)
+        {
+            try
+            {
+                //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                //Invoco al método que me va a traer exclusivamente el rol del usuario logeado, pasandole el identity.
+                string rol = JWTConfigurator.TokenObtenerRol(identity);
+                //Preguntamos si el usuario es RH para seguir con la operación
+                if (rol == "RH")
+                {
+                    /*Le pasamos una Lista de tipo PreguntaRespuesta a AsignarPreguntas, esta va a tener
+                      la misma llave fóranea de IdAuditoria para cada uno de los objetos dentro de la lista
+                       y como llave fóranea de respuesta va a tener siempre un 1, o sea, un nulo*/
+                    await _auditoriaService.AsignarPreguntas(preguntaRespuesta);
+                    //Retornamos un mensaje confirmando la operación
+                    return Ok(new { message = "Preguntas asignadas a la auditoría con éxito" });
+                }
+                else
+                {
+                    //Si no tiene acceso al método le mandamos un error
+                    return BadRequest(new { message = " No tiene permiso de ejecutar esta operación " });
+                }
+            }
+            //Mandamos un error si algo sale mal.
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
         //Endpoint para obtener todas las auditorias dentro de la base
         [HttpGet]
@@ -111,6 +148,72 @@ namespace RestAPI.Controllers
                 return Error;
             }
         }
+        
+        //Enpoint para cambiar el estado de una auditoria cuando la vamos a contestar.
+        [Route("CambiarEstadoEP")]
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<int> Put(IdAuditoria idAud)
+        {
+            //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
+            var identity = HttpContext.User.Identity as ClaimsIdentity;
+            //Invoco al método que me va a traer exclusivamente el rol del usuario logeado, pasandole el identity.
+            string rol = JWTConfigurator.TokenObtenerRol(identity);
+            //Si el rol del que quiere acceder a este método, no es el auditor, regreso un -1
+            if (rol != "Auditor")
+            {
+                return -1;
+            }
+            //Buscamos el estado de la auditoria a través de su id
+            string estado = await _auditoriaService.ObtenerEstadoAuditoria(idAud.idAuditoria);
+            //Preguntamos si la auditoría ya esta en proceso, si es así, retornamos un -1 para indicar un error.
+            if(estado=="En Proceso")
+            {
+                return 0;
+            }
+            //Si la auditoria no esta en proceso, cambiamos su estado a "En proceso" antes de empezar a contestarla.
+            else 
+            {
+                //Obtenemos la auditoria que vamos a aplicar
+                Auditoria audi = await _auditoriaService.ObtenerAuditoria(idAud.idAuditoria);
+                //Y la auditoria que tenemos, se la pasamos al método cambiar estado con "En Proceso"
+                await _auditoriaService.CambiarEstado("En Proceso", audi);
+                //Retornamos un 1 para indicar que la operación se hizo de manera exitosa
+                return 1;
+            }
+        }
+
+        //Endpoint para actualizar el estado a "Aplicada" cuando terminamos de contestar una auditoría.
+        [Route("CambiarEstadoAP")]
+        [HttpPut]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        public async Task<IActionResult> PutAP(IdAuditoria idAud)
+        {
+            try
+            {
+                //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
+                var identity = HttpContext.User.Identity as ClaimsIdentity;
+                //Invoco al método que me va a traer exclusivamente el rol del usuario logeado, pasandole el identity.
+                string rol = JWTConfigurator.TokenObtenerRol(identity);
+                if (rol == "Auditor")
+                {
+                    //Buscamos la auditoria por su id
+                    Auditoria audi = await _auditoriaService.ObtenerAuditoria(idAud.idAuditoria);
+                    //Se lo pasamos al método para que cambie su estado a "Aplicada"
+                    await _auditoriaService.CambiarEstado("Aplicada", audi);
+                    return Ok(new { message = "Se ha contestado la auditoria con el id " +idAud.idAuditoria});
+                }
+                else
+                {
+                    return BadRequest(new { message = "No tiene acceso a esta operación" });
+                }
+            }
+            catch (Exception ex)
+            { //Si algo sale mal mandamos un error
+                return BadRequest(ex.Message);
+                
+            }
+        }
 
         //Endpoint para contestar (o asignarles más bien) las preguntas dentro de una auditoria.
         [Route("AplicarAuditoria")]
@@ -121,7 +224,9 @@ namespace RestAPI.Controllers
         {
 
             try
-            {   //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
+            {
+
+                //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
                 var identity = HttpContext.User.Identity as ClaimsIdentity;
                 //Invoco al método que me va a traer exclusivamente el rol del usuario logeado, pasandole el identity.
                 string rol = JWTConfigurator.TokenObtenerRol(identity);
@@ -139,6 +244,7 @@ namespace RestAPI.Controllers
                     //Mandamos un error si no tiene acceso al método.
                     return BadRequest(new { message = " No tiene permiso de ejecutar esta operación" });
                 }
+
             }//Mandamos un error si algo sale mal.
 
             catch (Exception ex)
@@ -147,41 +253,6 @@ namespace RestAPI.Controllers
             }
         }
 
-        //Enpoint para asignarle preguntas a una auditoria
-        [Route("CrearAuditoria")]
-        [HttpPost]
-        //Protección del endpoint
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        public async Task<IActionResult> Post([FromBody] List<PreguntaRespuesta> preguntaRespuesta)
-        {
-            try
-            {
-                //En este objeto, con este HttpContext, me va a traer TODOS LOS ATRIBUTOS DEL TOKEN, incluidos los claims.
-                var identity = HttpContext.User.Identity as ClaimsIdentity;
-                //Invoco al método que me va a traer exclusivamente el rol del usuario logeado, pasandole el identity.
-                string rol = JWTConfigurator.TokenObtenerRol(identity);
-                //Preguntamos si el usuario es RH para seguir con la operación
-                if (rol == "RH")
-                {
-                    /*Le pasamos una Lista de tipo PreguntaRespuesta a AsignarPreguntas, esta va a tener
-                      la misma llave fóranea de IdAuditoria para cada uno de los objetos dentro de la lista
-                       y como llave fóranea de respuesta va a tener siempre un 1, o sea, un nulo*/
-                    await _auditoriaService.AsignarPreguntas(preguntaRespuesta);
-                    //Retornamos un mensaje confirmando la operación
-                    return Ok(new { message = "Preguntas asignadas a la auditoría con éxito" });
-                }
-                else
-                {
-                    //Si no tiene acceso al método le mandamos un error
-                    return BadRequest(new { message = " No tiene permiso de ejecutar esta operación " });
-                }
-            }
-            //Mandamos un error si algo sale mal.
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-        }
 
 
 

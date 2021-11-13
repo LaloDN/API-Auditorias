@@ -1,0 +1,1863 @@
+{
+	"info": {
+		"_postman_id": "a634b2e7-44a8-4588-aa3b-ec91bfe2e175",
+		"name": "Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Agregar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"NombreUsuario\":\"TomHolland\",\r\n    \"Password\":\"12345\",\r\n    \"Rol\":\"Auditor\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Agregar RH",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreUsuario\":\"Andrew\",\r\n    \"Password\":\"09876\",\r\n    \"Rol\":\"RH\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:44:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario Andrew se ha registrado con el id 11\"\n}"
+				},
+				{
+					"name": "Agregar auditor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreUsuario\":\"TomHolland\",\r\n    \"Password\":\"12345\",\r\n    \"Rol\":\"Auditor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:45:07 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario TomHolland se ha registrado con el id 12\"\n}"
+				},
+				{
+					"name": "Repetir usuario",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreUsuario\":\"TomHolland\",\r\n    \"Password\":\"12345\",\r\n    \"Rol\":\"Auditor\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 01:39:03 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario TomHolland ya existe!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"NombreUsuario\":\"HolaNo\",\r\n    \"Password\":\"Existo\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login RH",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"NombreUsuario\":\"EduardoRH\",\r\n    \"Password\":\"RH12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:47:57 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg\"\n}"
+				},
+				{
+					"name": "Login Auditor",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"NombreUsuario\":\"BryanAuditor\",\r\n    \"Password\":\"AU12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:48:18 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0\"\n}"
+				},
+				{
+					"name": "Login inválido",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"NombreUsuario\":\"HolaNo\",\r\n    \"Password\":\"Existo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Login"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 01:39:40 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuario o contraseña invalidos\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener lista de usuarios",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener lista de usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:50:40 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1060"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idUsuario\": 1,\n        \"nombreUsuario\": \"Eduardo\",\n        \"password\": \"123Hola\",\n        \"rol\": \"Rh\"\n    },\n    {\n        \"idUsuario\": 2,\n        \"nombreUsuario\": \"Bryan\",\n        \"password\": \"456Adios\",\n        \"rol\": \"Auditor\"\n    },\n    {\n        \"idUsuario\": 3,\n        \"nombreUsuario\": \"Brandon\",\n        \"password\": \"789Prueba\",\n        \"rol\": \"Auditor\"\n    },\n    {\n        \"idUsuario\": 5,\n        \"nombreUsuario\": \"Migelo\",\n        \"password\": \"2f8b4ef597053ab7022d76ea1fa7b82a\",\n        \"rol\": \"Auditor\"\n    },\n    {\n        \"idUsuario\": 6,\n        \"nombreUsuario\": \"EduardoRH\",\n        \"password\": \"299df5752638c463ca463c6b4607c7da\",\n        \"rol\": \"RH\"\n    },\n    {\n        \"idUsuario\": 7,\n        \"nombreUsuario\": \"BryanAuditor\",\n        \"password\": \"a8cfcded70aa2ba1283d3209ea101f94\",\n        \"rol\": \"Auditor\"\n    },\n    {\n        \"idUsuario\": 8,\n        \"nombreUsuario\": \"Oscarensio\",\n        \"password\": \"99547ec0938cc13d4e29b98995fdd528\",\n        \"rol\": \"RH\"\n    },\n    {\n        \"idUsuario\": 9,\n        \"nombreUsuario\": \"Manolito\",\n        \"password\": \"99547ec0938cc13d4e29b98995fdd528\",\n        \"rol\": \"RH\"\n    },\n    {\n        \"idUsuario\": 10,\n        \"nombreUsuario\": \"PeterParker\",\n        \"password\": \"99547ec0938cc13d4e29b98995fdd528\",\n        \"rol\": \"RH\"\n    },\n    {\n        \"idUsuario\": 11,\n        \"nombreUsuario\": \"Andrew\",\n        \"password\": \"6531401f9a6807306651b87e44c05751\",\n        \"rol\": \"RH\"\n    },\n    {\n        \"idUsuario\": 12,\n        \"nombreUsuario\": \"TomHolland\",\n        \"password\": \"827ccb0eea8a706c4c34a16891f84e7b\",\n        \"rol\": \"Auditor\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Cambiar password",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"passwordAnterior\":\"RH12345\",\r\n    \"nuevaPassword\":\"RH1234\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario/CambiarPassword",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario",
+						"CambiarPassword"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cambiar password",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"passwordAnterior\":\"RH12345\",\r\n    \"nuevaPassword\":\"RH1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario/CambiarPassword",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario",
+								"CambiarPassword"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:55:57 GMT"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La password fue actualizada con exito!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener lista departamentos",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:36335/api/Departamento",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Departamento"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener lista departamentos",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:36335/api/Departamento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Departamento"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:57:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idDepartamento\": 1,\n        \"nombreDepartamento\": \"Cocina\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 2,\n        \"nombreDepartamento\": \"Automotriz\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 3,\n        \"nombreDepartamento\": \"RH\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 4,\n        \"nombreDepartamento\": \"Dulcería\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 5,\n        \"nombreDepartamento\": \"Joyas\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 6,\n        \"nombreDepartamento\": \"Juguetes\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 7,\n        \"nombreDepartamento\": \"Electronica\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 8,\n        \"nombreDepartamento\": \"Hagalo usted mismo\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 9,\n        \"nombreDepartamento\": \"Limpieza\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 10,\n        \"nombreDepartamento\": \"Mercancía general\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 11,\n        \"nombreDepartamento\": \"Armas\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 12,\n        \"nombreDepartamento\": \"Temporada\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 13,\n        \"nombreDepartamento\": \"Recepción\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 14,\n        \"nombreDepartamento\": \"Herramientas\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 15,\n        \"nombreDepartamento\": \"Perfumeria\",\n        \"auditorias\": []\n    },\n    {\n        \"idDepartamento\": 16,\n        \"nombreDepartamento\": \"Belleza\",\n        \"auditorias\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Crear pregunta",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY2ODM5MzksImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.CIfkgpm3tA0qPP1RZ858YKaA9Cy5jWg78Jxm-wPcqk4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Descripcion\":\"¿Hay algún kit de primeros auxilios?\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Pregunta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Pregunta"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear pregunta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Descripcion\":\"¿Hay algún kit de primeros auxilios?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Pregunta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Pregunta"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 00:59:47 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Pregunta ¿Hay algún kit de primeros auxilios? registrada con id 16\"\n}"
+				},
+				{
+					"name": "Repetir la misma pregunta",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY2ODM5MzksImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.CIfkgpm3tA0qPP1RZ858YKaA9Cy5jWg78Jxm-wPcqk4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Descripcion\":\"¿Hay algún kit de primeros auxilios?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Pregunta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Pregunta"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 01:38:01 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La pregunta ya existe dentro de la base\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener lista de preguntas",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:36335/api/Pregunta",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Pregunta"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener lista de preguntas",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:36335/api/Pregunta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Pregunta"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:00:54 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idPregunta\": 1,\n        \"descripcion\": \"¿Cuantos años tiene?\"\n    },\n    {\n        \"idPregunta\": 2,\n        \"descripcion\": \"¿Como esta?\"\n    },\n    {\n        \"idPregunta\": 3,\n        \"descripcion\": \"¿Como va?\"\n    },\n    {\n        \"idPregunta\": 4,\n        \"descripcion\": \"¿Que tan limpio esta?\"\n    },\n    {\n        \"idPregunta\": 5,\n        \"descripcion\": \"¿Se hace con frecuencia?\"\n    },\n    {\n        \"idPregunta\": 6,\n        \"descripcion\": \"¿Cuantos años tiene?.\"\n    },\n    {\n        \"idPregunta\": 7,\n        \"descripcion\": \"¿Como esta el día?\"\n    },\n    {\n        \"idPregunta\": 8,\n        \"descripcion\": \"¿Está bien aseada esta el área?\"\n    },\n    {\n        \"idPregunta\": 9,\n        \"descripcion\": \"¿Se cumplen los protocolos de sanidad?\"\n    },\n    {\n        \"idPregunta\": 10,\n        \"descripcion\": \"¿Se realiza la limpieza con frecuencia?\"\n    },\n    {\n        \"idPregunta\": 11,\n        \"descripcion\": \"¿Las plagas estan bien controladas?\"\n    },\n    {\n        \"idPregunta\": 12,\n        \"descripcion\": \"¿Los estantes/mostradores/muebles lucen bien?\"\n    },\n    {\n        \"idPregunta\": 13,\n        \"descripcion\": \"¿Los empleados se lavan las manos frecuentemente?\"\n    },\n    {\n        \"idPregunta\": 14,\n        \"descripcion\": \"¿Las herramientas de limpieza estan en buen estado?\"\n    },\n    {\n        \"idPregunta\": 15,\n        \"descripcion\": \"¿Los utensilios peligrosos están bien resguardados?\"\n    },\n    {\n        \"idPregunta\": 16,\n        \"descripcion\": \"¿Hay algún kit de primeros auxilios?\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Crear una nueva auditoria (vacia)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Descripcion\":\"Auditoria de seguridad\",\r\n    \"Estado\":\"Pendiente\",\r\n    \"IdDepartamento_Auditoria\":12\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear una nueva auditoria (vacia)",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Descripcion\":\"Auditoria de seguridad\",\r\n    \"Estado\":\"Pendiente\",\r\n    \"IdDepartamento_Auditoria\":12\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:05:12 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "5"
+				}
+			]
+		},
+		{
+			"name": "Asignar preguntas a auditoria",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":11,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":2,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":7,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":8,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/CrearAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"CrearAuditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Asignar preguntas a auditoria",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":11,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":2,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":7,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    },\r\n    {\r\n        \"IdPregunta_PreguntaRespuesta\":8,\r\n        \"IdRespuesta_PreguntaRespuesta\":1,\r\n        \"IdAuditoria_PreguntaRespuesta\":5\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/CrearAuditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"CrearAuditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:08:21 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Preguntas asignadas a la auditoría con éxito\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Obtener lista de auditorias",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener lista de auditorias",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:10:16 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idAuditoria\": 2,\n        \"descripcion\": \"Calidad\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 2,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    },\n    {\n        \"idAuditoria\": 3,\n        \"descripcion\": \"Seguridad\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 1,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    },\n    {\n        \"idAuditoria\": 4,\n        \"descripcion\": \"Auditoría de preguntas\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 2,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    },\n    {\n        \"idAuditoria\": 5,\n        \"descripcion\": \"Auditoria de seguridad\",\n        \"estado\": \"Pendiente\",\n        \"idDepartamento_Auditoria\": 12,\n        \"departamento\": null,\n        \"preguntaRespuestas\": []\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Obtener preguntas-respuestas asociadas a una auditoria",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/VerAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"VerAuditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Obtener preguntas-respuestas asociadas a una auditoria",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/VerAuditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"VerAuditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:14:59 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"idPreguntaRespuesta\": 22,\n        \"idPregunta_PreguntaRespuesta\": 11,\n        \"pregunta\": null,\n        \"idRespuesta_PreguntaRespuesta\": 1,\n        \"respuesta\": null,\n        \"idAuditoria_PreguntaRespuesta\": 5,\n        \"auditoria\": null\n    },\n    {\n        \"idPreguntaRespuesta\": 23,\n        \"idPregunta_PreguntaRespuesta\": 2,\n        \"pregunta\": null,\n        \"idRespuesta_PreguntaRespuesta\": 1,\n        \"respuesta\": null,\n        \"idAuditoria_PreguntaRespuesta\": 5,\n        \"auditoria\": null\n    },\n    {\n        \"idPreguntaRespuesta\": 24,\n        \"idPregunta_PreguntaRespuesta\": 7,\n        \"pregunta\": null,\n        \"idRespuesta_PreguntaRespuesta\": 1,\n        \"respuesta\": null,\n        \"idAuditoria_PreguntaRespuesta\": 5,\n        \"auditoria\": null\n    },\n    {\n        \"idPreguntaRespuesta\": 25,\n        \"idPregunta_PreguntaRespuesta\": 8,\n        \"pregunta\": null,\n        \"idRespuesta_PreguntaRespuesta\": 1,\n        \"respuesta\": null,\n        \"idAuditoria_PreguntaRespuesta\": 5,\n        \"auditoria\": null\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Cambiar de estado a \"En Proceso\" a una auditoria",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/CambiarEstadoEP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"CambiarEstadoEP"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cambiarla por primera vez",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/CambiarEstadoEP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"CambiarEstadoEP"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:23:33 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "1"
+				},
+				{
+					"name": "Entrar cuando esta en proceso",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/CambiarEstadoEP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"CambiarEstadoEP"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:33:02 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "0"
+				},
+				{
+					"name": "Tratar de cambiar el estado como un RH",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY1MDg4NzUsImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.ZN3MT2vlfHhZeGxSDQh0wImx5ew2d6wo5XvYZ_T_Vsg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/CambiarEstadoEP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"CambiarEstadoEP"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:33:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "-1"
+				}
+			]
+		},
+		{
+			"name": "Contestar una auditoria",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"idPreguntaRespuesta\":22,\r\n        \"respuestaEscogida\":2\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":23,\r\n        \"respuestaEscogida\":4\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":24,\r\n        \"respuestaEscogida\":2\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":25,\r\n        \"respuestaEscogida\":5\r\n    }\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/AplicarAuditoria",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"AplicarAuditoria"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Contestar una auditoria",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"idPreguntaRespuesta\":22,\r\n        \"respuestaEscogida\":2\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":23,\r\n        \"respuestaEscogida\":4\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":24,\r\n        \"respuestaEscogida\":2\r\n    },\r\n    {\r\n        \"idPreguntaRespuesta\":25,\r\n        \"respuestaEscogida\":5\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/AplicarAuditoria",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"AplicarAuditoria"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:37:52 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"La auditoría ha sido aplicada con éxito!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Cambiar de estado a \"Aplicada\"",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:36335/api/Auditoria/CambiarEstadoAP",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Auditoria",
+						"CambiarEstadoAP"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Cambiar de estado a \"Aplicada\"",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJCcnlhbkF1ZGl0b3IiLCJpZFVzdWFyaW8iOiI3Iiwicm9sIjoiQXVkaXRvciIsImV4cCI6MTYzNjUwODg5OCwiaXNzIjoiZG9taW5pb2Zyb250a2VuZC5jb20iLCJhdWQiOiJkb21pbmlvYmFja2VuZC5jb20ifQ.ji5MCobYnMD58AybVIfUWv_H04TxdU2E1_RJoeN14U0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idAuditoria\":5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:36335/api/Auditoria/CambiarEstadoAP",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Auditoria",
+								"CambiarEstadoAP"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 10 Nov 2021 01:41:45 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Se ha contestado la auditoria con el id 5\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Borrar usuario",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY2ODM5MzksImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.CIfkgpm3tA0qPP1RZ858YKaA9Cy5jWg78Jxm-wPcqk4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:36335/api/Usuario/id=6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "36335",
+					"path": [
+						"api",
+						"Usuario",
+						"id=6"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Borrar usuario cualquiera",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY2ODM5MzksImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.CIfkgpm3tA0qPP1RZ858YKaA9Cy5jWg78Jxm-wPcqk4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario/id=9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario",
+								"id=9"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 01:30:50 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"El usuario Manolito ha sido borrado con éxito!\"\n}"
+				},
+				{
+					"name": "Borrandose a si mismo",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJFZHVhcmRvUkgiLCJpZFVzdWFyaW8iOiI2Iiwicm9sIjoiUkgiLCJleHAiOjE2MzY2ODM5MzksImlzcyI6ImRvbWluaW9mcm9udGtlbmQuY29tIiwiYXVkIjoiZG9taW5pb2JhY2tlbmQuY29tIn0.CIfkgpm3tA0qPP1RZ858YKaA9Cy5jWg78Jxm-wPcqk4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:36335/api/Usuario/id=6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "36335",
+							"path": [
+								"api",
+								"Usuario",
+								"id=6"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Server",
+							"value": "Microsoft-IIS/10.0"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "ASP.NET"
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 12 Nov 2021 01:35:24 GMT"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \" No puede borrarse a si mismo. \"\n}"
+				}
+			]
+		}
+	]
+}
