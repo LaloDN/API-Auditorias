@@ -25,7 +25,7 @@ Este proyecto funciona con el patron de diseño **repository**.
 - Utils: Es la carpeta con las clases que nos ayudan a realizar procesos en nuestra aplicación, como encriptar contraseñas u obtener los claims de un JWT.
 #### Diagrama secuencial del patrón de dsieño
 
-```seq
+``` seq
 Frontend->Controlador:Petición
 Controlador->Service: Puente hacía repository
 Service->Repository: Operación con la base de datos
