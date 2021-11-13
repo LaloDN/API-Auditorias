@@ -34,7 +34,8 @@ Service->Controlador: Puente hacía controlador
 Controlador->Frontend: Respuesta de la petición
 ```
 #### Sistema de carpetas
-La vista principal del proyecto es la siguiente <br />
+La vista principal del proyecto es la siguiente <br/>  
+
 ![vista de carpetas](/imagenes/carpetas.png)
 
 #### Distribución de archivos
