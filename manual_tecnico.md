@@ -4,7 +4,7 @@
 
 [TOC]
 
-###Dependencias
+### Dependencias
 Esta API Rest esta construida con los siguientes paquetes/herramientas:
 - .Net Core (3.1)
 - Microsoft.AspNetCore.Authentication.JwtBearer (3.1.8)
@@ -34,7 +34,7 @@ Service->Controlador: Puente hacía controlador
 Controlador->Frontend: Respuesta de la petición
 ```
 #### Sistema de carpetas
-La vista principal del proyecto es la siguiente
+La vista principal del proyecto es la siguiente <br />
 ![vista de carpetas](/imagenes/carpetas.png)
 
 #### Distribución de archivos
