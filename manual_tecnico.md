@@ -84,10 +84,10 @@ Dentro de este método service ya tenemos nuestra base de datos configurada, as�
 #### UsuarioController
 Dentro de este controlador vamos a tener los endpoints relacionados con las operaciones del usuario, como la alta y baja o cambio de contraseñas
 ##### POST
-*Nivel de acceso: Público* <\br>
-*Requiere token: No*  <\br>
-*Descripción: Agrega un usuario a la base de datos*  <\br>
-*Parámetros del body:  Modelo Usuario*  <\br>
+- *Nivel de acceso:* Público
+- *Requiere token:* No
+- *Descripción:* Agrega un usuario a la base de datos
+- *Parámetros del body:* Modelo Usuario
 ![Endpoint agregar usuario](/imagenes/1.png)
 ##### GET
 *Nivel de acceso:* Solo usuarios RH
