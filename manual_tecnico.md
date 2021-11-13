@@ -84,10 +84,10 @@ Dentro de este método service ya tenemos nuestra base de datos configurada, as�
 #### UsuarioController
 Dentro de este controlador vamos a tener los endpoints relacionados con las operaciones del usuario, como la alta y baja o cambio de contraseñas
 ##### POST
-*Nivel de acceso: Público*
-*Requiere token: No*
-*Descripción: Agrega un usuario a la base de datos*
-*Parámetros del body:  Modelo Usuario*
+- *Nivel de acceso: Público*
+- *Requiere token: No*
+- *Descripción: Agrega un usuario a la base de datos*
+- *Parámetros del body:  Modelo Usuario*
 ![Endpoint agregar usuario](/imagenes/1.png)
 ##### GET
 *Nivel de acceso:* Solo usuarios RH
@@ -115,7 +115,7 @@ Dentro de este controlador vamos a tener los endpoints relacionados con las oper
 Contiene un único endpoint que se utiliza para hacer el login al sistema.
 
 ##### POST
-*Nivel de acceso*: Público
+*Nivel de acceso:* Público
 *Requiere token:* No
 *Descripción:*  Verifica si el usuario a ingresar es válido y le regresa un token
 *Parámetros del body:* Recibe un objeto LoginDTO con la información de inicio de sesión del usuario
