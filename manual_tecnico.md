@@ -14,7 +14,7 @@ Esta API Rest esta construida con los siguientes paquetes/herramientas:
 
 ### Estructura del proyecto
 Este proyecto funciona con el patron de diseño **repository**.
-####Elementos del proyecto
+#### Elementos del proyecto
 - Controladores: Son clases que heredan de *ControllerBase*, en dónde tenemos la colección de nuestros endpoints.
 - Modelos: Son las clases que contienen los atributos que posteriormente serán convertidas a tablas y campos.
 - IRepository e IService: Son interfaces las cuáles nos ayudan a que los servicios y los repositorios sigan un contrato y esten atados a implementar los prototipos de los métodos dentro de nuestras interfaces (Nota: *Ambas inerfaces van a tener los mismos métodos*)
@@ -23,7 +23,7 @@ Este proyecto funciona con el patron de diseño **repository**.
 - Context: Es una clase que hereda de DbContext, aquí establecemos las instancias de DbSet (tablas en la base de datos), le pasamos la clase que vamos a convertir en una entidad así como el nombre que va a tener en la base de datos.
 - DTO: Son objetos auxiliares que nos ayudan a ser peticiones en los endpoints a los cuales no tenemos un modelo que cumpla con la estructura que necesita el body de las peticiones
 - Utils: Es la carpeta con las clases que nos ayudan a realizar procesos en nuestra aplicación, como encriptar contraseñas u obtener los claims de un JWT.
-####Diagrama secuencial del patrón de dsieño
+#### Diagrama secuencial del patrón de dsieño
 
 ```seq
 Frontend->Controlador:Petición
@@ -33,11 +33,11 @@ Repository->Service: Devuelve una tarea
 Service->Controlador: Puente hacía controlador
 Controlador->Frontend: Respuesta de la petición
 ```
-####Sistema de carpetas
+#### Sistema de carpetas
 La vista principal del proyecto es la siguiente
 ![vista de carpetas](/imagenes/carpetas.png)
 
-####Distribución de archivos
+#### Distribución de archivos
 + Controllers: Contiene los controladores del proyecto.
 + Domain:
     + IServices: Contiene las interfaces que van a implementar los service.
@@ -51,7 +51,7 @@ La vista principal del proyecto es la siguiente
 + Services: La carpeta de nuestra lógica de negocio que funciona como middleware entre controladores y repositorios.
 + Utils: Aquí se guardan todos las clases que nos puedan utilizar a lo largo del proyecto que nos ayudan a realizar diferentes operaciones. 
 
-####Proceso de creación de un nuevo componente.
+#### Proceso de creación de un nuevo componente.
 1. Se crea una interfaz para el servicio y el repositorio dentro de la carpeta correspondiente (Nota: Al momento de crearse, las interfaces deben ser públicas).
 2. Ahora se tiene que crear una clase repository, con una instancia *readonly* de la base de datos para hacer las operaciones correspondientes, esta clase debe de implementar a su respectivo IRepository.
 3. Se crea una clase services que va a tener una instancia *readonly* del repositorio, esta clase tiene que implementar a su respectivo IService.
@@ -73,35 +73,35 @@ La vista principal del proyecto es la siguiente
 
 Con esto ya podemos trabajar en nuestro nuevo controlador y programando los endpoints.
 
-####Configurando otros service
+#### Configurando otros service
 Dentro de este método service ya tenemos nuestra base de datos configurada, así como el CORS para recibir peticiones del frontend, si se desea agregar algún otro servicio en el futuro, se tiene que inyectar en este método para que la aplicación lo pueda utilizar.
-###Controladores y endpoints
+### Controladores y endpoints
 
 ------------
 
 
-####UsuarioController
+#### UsuarioController
 Dentro de este controlador vamos a tener los endpoints relacionados con las operaciones del usuario, como la alta y baja o cambio de contraseñas
-#####POST
+##### POST
 *Nivel de acceso: Público*
 *Requiere token: No*
 *Descripción: Agrega un usuario a la base de datos*
 *Parámetros del body:  Modelo Usuario*
 ![Endpoint agregar usuario](/imagenes/1.png)
-#####GET
+##### GET
 *Nivel de acceso:* Solo usuarios RH
 *Requiere token: *Si
 *Descripción:* Devuelve la lista de usuarios en la base de datos
 *Parámetros del body*: Ninguno
 ![Endpoint lista de usuarios](/imagenes/2.png)
-#####PUT
+##### PUT
 *Ruta de acceso:* /CambiarPassword
 *Nivel de acceso*: Usuarios dentro de la base
 *Requiere token:*Si
 *Descripción:*Cambia la contraseña de un usuario en la base
 *Parámetros del body:*Recibe un modelo cambiarPasswordDTO con la contraseña actual y la nueva
 ![Endpoint para cambiar password](/imagenes/3.png)
-#####DELETE
+##### DELETE
 *Nivel de acceso*: Solo usuarios RH
 *Requiere token:* Si
 *Descripción:* Elimina un usuario de la base de datos con su id
@@ -110,10 +110,10 @@ Dentro de este controlador vamos a tener los endpoints relacionados con las oper
 
 ------------
 
-####LoginController
+#### LoginController
 Contiene un único endpoint que se utiliza para hacer el login al sistema.
 
-#####POST
+##### POST
 *Nivel de acceso*: Público
 *Requiere token:* No
 *Descripción:*  Verifica si el usuario a ingresar es válido y le regresa un token
@@ -121,9 +121,9 @@ Contiene un único endpoint que se utiliza para hacer el login al sistema.
 ![Endpoint para hacer login](/imagenes/5.png)
 ------------
 
-####DepartamentoController
+#### DepartamentoController
 Contiene un único endpoint que nos sirve para obtener la lista de departamentos dentro de la base.
-#####GET
+##### GET
 *Nivel de acceso*: Solo usuarios RH
 *Requiere token:* Si
 *Descripción:* Devuelve la lista de los departamentos registrados en la base de datos
@@ -132,16 +132,16 @@ Contiene un único endpoint que nos sirve para obtener la lista de departamentos
 
 ------------
 
-####PreguntaController
+#### PreguntaController
 Tiene endpoints para agregar y traer preguntas de la base de datos.
-#####POST
+##### POST
 *Nivel de acceso*: Solo usuarios RH
 *Requiere token:* Si
 *Descripción:* Agrega una pregunta a la base de datos
 *Parámetros del body:* Modelo Pregunta
 ![Endpoint para agergar preguntas](/imagenes/7.png)
 
-#####GET
+##### GET
 *Nivel de acceso*: Solo usuarios RH
 *Requiere token:* Si
 *Descripción:* Devuelve la lista de preguntas que tenemos disponibles en la base de datos
@@ -150,35 +150,35 @@ Tiene endpoints para agregar y traer preguntas de la base de datos.
 
 ------------
 
-####AuditoriaController
+#### AuditoriaController
 Aquí estan todos los endpoints que nos van a ayudar para el proceso de la adutoría
-#####POST
+##### POST
 *Nivel de acceso*: Solo usuarios RH
 *Requiere token:* Si
 *Descripción:* Crea una auditoria vacía y devuelve el id (int) con el que fue registrada en la base de datos 
 *Parámetros del body:* Modelo Auditoria
 ![Endpoint para crear una auditoria](/imagenes/9.png)
-#####POST
+##### POST
 *Ruta de accceso:* /CrearAuditoria 
 *Nivel de acceso*: Solo usuarios RH
 *Requiere token:* Si
 *Descripción:* Asigna un grupo de respuestas a una auditoría
 *Parámetros del body:* Lista de modelos PreguntaRespuesta
 ![Endpoint para asignar preguntas](/imagenes/10.png)
-####GET
+#### GET
 *Nivel de acceso*: Usuarios dentro del sistema
 *Requiere token:* Si
 *Descripción:* Obtiene la lista de las auditorias creadas
 *Parámetros del body:* Ninguno
 ![Endpoint para obtener la lista de aduitorías](/imagenes/11.png)
-####GET
+#### GET
 *Ruta de acceso:* /VerAuditoria
 *Nivel de acceso*: Usuarios dentro del sistema
 *Requiere token:* Si
 *Descripción:* Obtiene la lista de preguntas que fueron asignadas a una auditoría
 *Parámetros del body:* Objeto IdAuditoria con el id de la auditoria que queremos ver.
 ![Endpoint para obtener la lista de preguntas de una auditoría](/imagenes/12.png)
-####PUT
+#### PUT
 *Ruta de acceso:* /CambiarEstadoEP
 *Nivel de acceso*: Solo usuarios auditores
 *Requiere token:* Si
@@ -186,14 +186,14 @@ Aquí estan todos los endpoints que nos van a ayudar para el proceso de la aduto
 *Parámetros del body:* Objeto IdAuditoria con el id de la auditoria a aplicar.
 ![Endpoint cambiar estado primero](/imagenes/13.png)
 ![Endpoint cambiar estado cuando esta en proceso](/imagenes/14.png)
-####PUT
+#### PUT
 *Ruta de acceso:* /CambiarEstadoAP
 *Nivel de acceso*: Solo usuarios auditores
 *Requiere token:* Si
 *Descripción:* Cambia el estado de una auditoria a "Aplicada", se debe de aplicar cuando se termina de contstar una auditoría (siguiente endpoint como referencia).
 *Parámetros del body:* Objeto IdAuditoria con el id de la auditoría ya contestada.
 ![Endpoint para cambiar el estado a aplicada](/imagenes/16.png)
-####PUT
+#### PUT
 *Ruta de acceso:* /AplicarAuditoria
 *Nivel de acceso*: Solo usuarios auditores
 *Requiere token:* Si
@@ -201,8 +201,8 @@ Aquí estan todos los endpoints que nos van a ayudar para el proceso de la aduto
 *Parámetros del body:* Recibe una lista con las preguntas asociadas a una auditoría, las cuáles van a ser contestadas.
 ![Endpoint para contestar las preguntas de una auditoría](/imagenes/15.png)
 
-###Diagrama de proceso de la API
+### Diagrama de proceso de la API
 ![Diagrama de proceso](/imagenes/Proceso.png)
 
-###Modelo relacional de la base de datos
+### Modelo relacional de la base de datos
 ![Modelo ER](/imagenes/base.png)
