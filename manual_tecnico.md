@@ -90,23 +90,23 @@ Dentro de este controlador vamos a tener los endpoints relacionados con las oper
 - *Parámetros del body:* Modelo Usuario
 ![Endpoint agregar usuario](/imagenes/1.png)
 ##### GET
-*Nivel de acceso:* Solo usuarios RH
-*Requiere token: *Si
-*Descripción:* Devuelve la lista de usuarios en la base de datos
-*Parámetros del body*: Ninguno
+- *Nivel de acceso:* Solo usuarios RH
+- *Requiere token: *Si
+- *Descripción:* Devuelve la lista de usuarios en la base de datos
+- *Parámetros del body*: Ninguno
 ![Endpoint lista de usuarios](/imagenes/2.png)
 ##### PUT
-*Ruta de acceso:* /CambiarPassword
-*Nivel de acceso*: Usuarios dentro de la base
-*Requiere token:*Si
-*Descripción:*Cambia la contraseña de un usuario en la base
-*Parámetros del body:*Recibe un modelo cambiarPasswordDTO con la contraseña actual y la nueva
+- *Ruta de acceso:* /CambiarPassword
+- *Nivel de acceso*: Usuarios dentro de la base
+- *Requiere token:*Si
+- *Descripción:*Cambia la contraseña de un usuario en la base
+- *Parámetros del body:*Recibe un modelo cambiarPasswordDTO con la contraseña actual y la nueva
 ![Endpoint para cambiar password](/imagenes/3.png)
 ##### DELETE
-*Nivel de acceso*: Solo usuarios RH
-*Requiere token:* Si
-*Descripción:* Elimina un usuario de la base de datos con su id
-*Parámetros de la petición:* Al final del link de la petición se agrega un /id=(id usuario a borrar)
+- *Nivel de acceso*: Solo usuarios RH
+- *Requiere token:* Si
+- *Descripción:* Elimina un usuario de la base de datos con su id
+- *Parámetros de la petición:* Al final del link de la petición se agrega un /id=(id usuario a borrar)
 ![Endpoint para borrar usuarios](/imagenes/4.png)
 
 ------------
@@ -115,20 +115,20 @@ Dentro de este controlador vamos a tener los endpoints relacionados con las oper
 Contiene un único endpoint que se utiliza para hacer el login al sistema.
 
 ##### POST
-*Nivel de acceso:* Público
-*Requiere token:* No
-*Descripción:*  Verifica si el usuario a ingresar es válido y le regresa un token
-*Parámetros del body:* Recibe un objeto LoginDTO con la información de inicio de sesión del usuario
+- *Nivel de acceso:* Público
+- *Requiere token:* No
+- *Descripción:*  Verifica si el usuario a ingresar es válido y le regresa un token
+- *Parámetros del body:* Recibe un objeto LoginDTO con la información de inicio de sesión del usuario
 ![Endpoint para hacer login](/imagenes/5.png)
 ------------
 
 #### DepartamentoController
 Contiene un único endpoint que nos sirve para obtener la lista de departamentos dentro de la base.
 ##### GET
-*Nivel de acceso*: Solo usuarios RH
-*Requiere token:* Si
-*Descripción:* Devuelve la lista de los departamentos registrados en la base de datos
-*Parámetros del body:* Ninguno
+- *Nivel de acceso*: Solo usuarios RH
+- *Requiere token:* Si
+- *Descripción:* Devuelve la lista de los departamentos registrados en la base de datos
+- *Parámetros del body:* Ninguno
 ![Endpoint para obtener los departamentos](/imagenes/6.png)
 
 ------------
@@ -136,17 +136,17 @@ Contiene un único endpoint que nos sirve para obtener la lista de departamentos
 #### PreguntaController
 Tiene endpoints para agregar y traer preguntas de la base de datos.
 ##### POST
-*Nivel de acceso*: Solo usuarios RH
-*Requiere token:* Si
-*Descripción:* Agrega una pregunta a la base de datos
-*Parámetros del body:* Modelo Pregunta
+- *Nivel de acceso*: Solo usuarios RH
+- *Requiere token:* Si
+- *Descripción:* Agrega una pregunta a la base de datos
+- *Parámetros del body:* Modelo Pregunta
 ![Endpoint para agergar preguntas](/imagenes/7.png)
 
 ##### GET
-*Nivel de acceso*: Solo usuarios RH
-*Requiere token:* Si
-*Descripción:* Devuelve la lista de preguntas que tenemos disponibles en la base de datos
-*Parámetros del body:* Ninguno
+- *Nivel de acceso*: Solo usuarios RH
+- *Requiere token:* Si
+- *Descripción:* Devuelve la lista de preguntas que tenemos disponibles en la base de datos
+- *Parámetros del body:* Ninguno
 ![Endpoint para obtener el catálogo de preguntas](/imagenes/8.png)
 
 ------------
@@ -154,56 +154,56 @@ Tiene endpoints para agregar y traer preguntas de la base de datos.
 #### AuditoriaController
 Aquí estan todos los endpoints que nos van a ayudar para el proceso de la adutoría
 ##### POST
-*Nivel de acceso*: Solo usuarios RH
-*Requiere token:* Si
-*Descripción:* Crea una auditoria vacía y devuelve el id (int) con el que fue registrada en la base de datos 
-*Parámetros del body:* Modelo Auditoria
+- *Nivel de acceso*: Solo usuarios RH
+- *Requiere token:* Si
+- *Descripción:* Crea una auditoria vacía y devuelve el id (int) con el que fue registrada en la base de datos 
+- *Parámetros del body:* Modelo Auditoria
 ![Endpoint para crear una auditoria](/imagenes/9.png)
 ##### POST
-*Ruta de accceso:* /CrearAuditoria 
-*Nivel de acceso*: Solo usuarios RH
-*Requiere token:* Si
-*Descripción:* Asigna un grupo de respuestas a una auditoría
-*Parámetros del body:* Lista de modelos PreguntaRespuesta
+- *Ruta de accceso:* /CrearAuditoria 
+- *Nivel de acceso*: Solo usuarios RH
+- *Requiere token:* Si
+- *Descripción:* Asigna un grupo de respuestas a una auditoría
+- *Parámetros del body:* Lista de modelos PreguntaRespuesta
 ![Endpoint para asignar preguntas](/imagenes/10.png)
 #### GET
-*Nivel de acceso*: Usuarios dentro del sistema
-*Requiere token:* Si
-*Descripción:* Obtiene la lista de las auditorias creadas
-*Parámetros del body:* Ninguno
+- *Nivel de acceso*: Usuarios dentro del sistema
+- *Requiere token:* Si
+- *Descripción:* Obtiene la lista de las auditorias creadas
+- *Parámetros del body:* Ninguno
 ![Endpoint para obtener la lista de aduitorías](/imagenes/11.png)
 #### GET
-*Ruta de acceso:* /VerAuditoria
-*Nivel de acceso*: Usuarios dentro del sistema
-*Requiere token:* Si
-*Descripción:* Obtiene la lista de preguntas que fueron asignadas a una auditoría
-*Parámetros del body:* Objeto IdAuditoria con el id de la auditoria que queremos ver.
+- *Ruta de acceso:* /VerAuditoria
+- *Nivel de acceso*: Usuarios dentro del sistema
+- *Requiere token:* Si
+- *Descripción:* Obtiene la lista de preguntas que fueron asignadas a una auditoría
+- *Parámetros del body:* Objeto IdAuditoria con el id de la auditoria que queremos ver.
 ![Endpoint para obtener la lista de preguntas de una auditoría](/imagenes/12.png)
 #### PUT
-*Ruta de acceso:* /CambiarEstadoEP
-*Nivel de acceso*: Solo usuarios auditores
-*Requiere token:* Si
-*Descripción:* Se invoca cuándo se va a acceder a una auditoria, pregunta por su estado, si la auditoria esta "En Proceso", devuelve un -1, si la auditoría no está en proceso, cambia su estado a "En Proceso" y devuelve un 1, si el usuario no tiene permiso devuelve un 0.
-*Parámetros del body:* Objeto IdAuditoria con el id de la auditoria a aplicar.
+- *Ruta de acceso:* /CambiarEstadoEP
+- *Nivel de acceso*: Solo usuarios auditores
+- *Requiere token:* Si
+- *Descripción:* Se invoca cuándo se va a acceder a una auditoria, pregunta por su estado, si la auditoria esta "En Proceso", devuelve un -1, si la auditoría no está en proceso, cambia su estado a "En Proceso" y devuelve un 1, si el usuario no tiene permiso devuelve un 0.
+- *Parámetros del body:* Objeto IdAuditoria con el id de la auditoria a aplicar.
 ![Endpoint cambiar estado primero](/imagenes/13.png)
 ![Endpoint cambiar estado cuando esta en proceso](/imagenes/14.png)
 #### PUT
-*Ruta de acceso:* /CambiarEstadoAP
-*Nivel de acceso*: Solo usuarios auditores
-*Requiere token:* Si
-*Descripción:* Cambia el estado de una auditoria a "Aplicada", se debe de aplicar cuando se termina de contstar una auditoría (siguiente endpoint como referencia).
-*Parámetros del body:* Objeto IdAuditoria con el id de la auditoría ya contestada.
+- *Ruta de acceso:* /CambiarEstadoAP
+- *Nivel de acceso*: Solo usuarios auditores
+- *Requiere token:* Si
+- *Descripción:* Cambia el estado de una auditoria a "Aplicada", se debe de aplicar cuando se termina de contstar una auditoría (siguiente endpoint como referencia).
+- *Parámetros del body:* Objeto IdAuditoria con el id de la auditoría ya contestada.
 ![Endpoint para cambiar el estado a aplicada](/imagenes/16.png)
 #### PUT
-*Ruta de acceso:* /AplicarAuditoria
-*Nivel de acceso*: Solo usuarios auditores
-*Requiere token:* Si
-*Descripción:* De la lista de preguntas relacionadas a una auditoria, les cambia su respuesta inicial (la cual era nula) a una respuesta del catálogo de las respuestas válidas.
+- *Ruta de acceso:* /AplicarAuditoria
+- *Nivel de acceso*: Solo usuarios auditores
+- *Requiere token:* Si
+- *Descripción:* De la lista de preguntas relacionadas a una auditoria, les cambia su respuesta inicial (la cual era nula) a una respuesta del catálogo de las respuestas válidas.
 *Parámetros del body:* Recibe una lista con las preguntas asociadas a una auditoría, las cuáles van a ser contestadas.
 ![Endpoint para contestar las preguntas de una auditoría](/imagenes/15.png)
 
-### Diagrama de proceso de la API
+### Diagrama de proceso de la API  
 ![Diagrama de proceso](/imagenes/Proceso.png)
 
-### Modelo relacional de la base de datos
+### Modelo relacional de la base de datos  
 ![Modelo ER](/imagenes/base.png)
